@@ -41,7 +41,7 @@ interface ApiResponse<T> {
 
 export async function fetchInstituicoes(): Promise<Instituicao[]> {
   const res = await fetch(`${BASE}/recursos-humanos/instituicoes`);
-  if (!res.ok) throw new Error(`Erro ao buscar instituições (${res.status})`);
+  if (!res.ok) throw new Error(`Erro ao buscar institui��es (${res.status})`);
   const json: ApiResponse<Instituicao[]> = await res.json();
   return json.data ?? [];
 }
@@ -51,9 +51,7 @@ export async function fetchMovimentacoes(
   ano: string,
   mes: string,
 ): Promise<Servidor[]> {
-  const res = await fetch(
-    `${BASE}/recursos-humanos/movimentacoes/${portalId}/${ano}/${mes}`,
-  );
+  const res = await fetch(`${BASE}/recursos-humanos/movimentacoes/${portalId}/${ano}/${mes}`);
   if (!res.ok) throw new Error(`Erro ao buscar servidores (${res.status})`);
   const json: ApiResponse<Servidor[]> = await res.json();
   return json.data ?? [];
@@ -65,14 +63,12 @@ export function formatName(name: string): string {
   const small = new Set(["de", "da", "do", "das", "dos", "e"]);
   return lower
     .split(" ")
-    .map((w, i) =>
-      small.has(w) && i > 0 ? w : w.charAt(0).toUpperCase() + w.slice(1),
-    )
+    .map((w, i) => (small.has(w) && i > 0 ? w : w.charAt(0).toUpperCase() + w.slice(1)))
     .join(" ");
 }
 
 export function formatDate(d: string | null): string {
-  if (!d) return "—";
+  if (!d) return "�";
   const [y, m, day] = d.split("-");
   if (!y || !m || !day) return d;
   return `${day}/${m}/${y}`;
