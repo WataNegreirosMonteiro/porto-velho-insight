@@ -25,7 +25,7 @@ export function ServidorCard({ servidor, onView }: Props) {
               {formatName(servidor.nome)}
             </h3>
             <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
-              {servidor.cargo ?? "Cargo n�o informado"}
+              {servidor.cargo ?? "Cargo nao informado"}
             </p>
             {servidor.situacao && (
               <Badge
@@ -60,7 +60,7 @@ export function ServidorCard({ servidor, onView }: Props) {
           {servidor.data_admissao && (
             <div className="flex items-center gap-2">
               <Calendar className="h-3.5 w-3.5 shrink-0 text-primary" />
-              <span>Admiss�o: {servidor.data_admissao}</span>
+              <span>Admissao: {servidor.data_admissao}</span>
             </div>
           )}
         </div>

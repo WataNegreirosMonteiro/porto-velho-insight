@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Consulte servidores p�blicos de Porto Velho por institui��o, per�odo e filtro de nome.",
+          "Consulte servidores publicos de Porto Velho por instituicao, periodo e filtro de nome.",
       },
     ],
   }),
@@ -45,7 +45,7 @@ export const Route = createFileRoute("/")({
 const MESES = [
   { v: "01", l: "Janeiro" },
   { v: "02", l: "Fevereiro" },
-  { v: "03", l: "Mar�o" },
+  { v: "03", l: "Marco" },
   { v: "04", l: "Abril" },
   { v: "05", l: "Maio" },
   { v: "06", l: "Junho" },
@@ -57,9 +57,9 @@ const MESES = [
   { v: "12", l: "Dezembro" },
 ];
 
-const LINKS_RAPIDOS = ["Transpar�ncia", "Portal do Servidor", "Ouvidoria", "Acesso � Informa��o"];
+const LINKS_RAPIDOS = ["Transparencia", "Portal do Servidor", "Ouvidoria", "Acesso a Informacao"];
 
-const MENU_PRINCIPAL = ["In�cio", "Not�cias", "Servi�os", "Secretarias", "Concursos", "Legisla��o"];
+const MENU_PRINCIPAL = ["Inicio", "Noticias", "Servicos", "Secretarias", "Concursos", "Legislacao"];
 
 const ANO_ATUAL = new Date().getFullYear();
 const ANOS = Array.from({ length: 6 }, (_, i) => String(ANO_ATUAL - i));
@@ -161,14 +161,14 @@ function Index() {
         <section className="pv-hero">
           <div className="relative z-10">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground/85">
-              Transpar�ncia ativa
+              Transparencia ativa
             </p>
             <h2 className="mt-2 text-2xl font-semibold leading-tight text-primary-foreground sm:text-4xl">
-              Dados p�blicos de servidores do munic�pio de Porto Velho
+              Dados publicos de servidores do municipio de Porto Velho
             </h2>
             <p className="mt-3 max-w-2xl text-sm text-primary-foreground/90 sm:text-base">
-              Selecione institui��o, ano e m�s para consultar v�nculos, cargos e informa��es
-              funcionais. Tudo em uma interface simples, no padr�o visual oficial.
+              Selecione instituicao, ano e mes para consultar vinculos, cargos e informacoes
+              funcionais. Tudo em uma interface simples, no padrao visual oficial.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               <span className="pv-chip">
@@ -177,22 +177,22 @@ function Index() {
               </span>
               <span className="pv-chip">
                 <Database className="h-3.5 w-3.5" />
-                Base p�blica
+                Base publica
               </span>
               <span className="pv-chip">
                 <CalendarClock className="h-3.5 w-3.5" />
-                Consulta por per�odo
+                Consulta por periodo
               </span>
             </div>
           </div>
 
           <div className="relative z-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
             <InfoTile
-              label="Institui��es dispon�veis"
+              label="Instituicoes disponiveis"
               value={loadingInst ? "--" : String(instituicoes.length)}
             />
-            <InfoTile label="Ano de refer�ncia" value={ano} />
-            <InfoTile label="M�s selecionado" value={mesLabel} />
+            <InfoTile label="Ano de referencia" value={ano} />
+            <InfoTile label="Mes selecionado" value={mesLabel} />
           </div>
         </section>
 
@@ -202,7 +202,7 @@ function Index() {
               <div>
                 <h3 className="text-lg font-semibold text-foreground">Filtro de consulta</h3>
                 <p className="text-sm text-muted-foreground">
-                  Escolha os par�metros para listar os servidores.
+                  Escolha os parametros para listar os servidores.
                 </p>
               </div>
               <span className="rounded-full bg-accent px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-accent-foreground">
@@ -213,12 +213,12 @@ function Index() {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
               <div className="md:col-span-6">
                 <label className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  Institui��o
+                  Instituicao
                 </label>
                 <Select value={portalId} onValueChange={setPortalId} disabled={loadingInst}>
                   <SelectTrigger>
                     <SelectValue
-                      placeholder={loadingInst ? "Carregando..." : "Selecione uma institui��o"}
+                      placeholder={loadingInst ? "Carregando..." : "Selecione uma instituicao"}
                     />
                   </SelectTrigger>
                   <SelectContent>
@@ -251,7 +251,7 @@ function Index() {
 
               <div className="md:col-span-2">
                 <label className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  M�s
+                  Mes
                 </label>
                 <Select value={mes} onValueChange={setMes}>
                   <SelectTrigger>
@@ -285,7 +285,7 @@ function Index() {
 
             {errorInst && (
               <p className="mt-3 text-sm text-destructive">
-                Erro ao carregar institui��es: {errorInst}
+                Erro ao carregar instituicoes: {errorInst}
               </p>
             )}
           </CardContent>
@@ -294,8 +294,8 @@ function Index() {
         {!portalId && !loadingInst && (
           <EmptyState
             icon={<Building2 className="h-10 w-10" />}
-            title="Selecione uma institui��o"
-            description="Escolha uma institui��o acima para listar os servidores do per�odo."
+            title="Selecione uma instituicao"
+            description="Escolha uma instituicao acima para listar os servidores do periodo."
           />
         )}
 
@@ -309,7 +309,7 @@ function Index() {
         {errorServ && (
           <Card className="border-destructive/40 bg-destructive/5 shadow-none">
             <CardContent className="p-5 text-sm text-destructive">
-              N�o foi poss�vel carregar os servidores: {errorServ}
+              Nao foi possivel carregar os servidores: {errorServ}
             </CardContent>
           </Card>
         )}
@@ -318,7 +318,7 @@ function Index() {
           <EmptyState
             icon={<Users className="h-10 w-10" />}
             title="Nenhum servidor encontrado"
-            description="Tente outro m�s, ano ou ajuste o filtro."
+            description="Tente outro mes, ano ou ajuste o filtro."
           />
         )}
 
@@ -362,7 +362,7 @@ function Index() {
               </div>
             </div>
             <p className="text-xs text-primary-foreground/80">
-              � {ANO_ATUAL} Prefeitura de Porto Velho. Todos os direitos reservados.
+              (c) {ANO_ATUAL} Prefeitura de Porto Velho. Todos os direitos reservados.
             </p>
           </div>
         </div>

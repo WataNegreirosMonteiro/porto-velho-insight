@@ -22,7 +22,7 @@ function Field({ label, value }: { label: string; value: React.ReactNode }) {
       <div className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
         {label}
       </div>
-      <div className="mt-1 text-sm text-foreground">{value || "�"}</div>
+      <div className="mt-1 text-sm text-foreground">{value || "-"}</div>
     </div>
   );
 }
@@ -40,23 +40,23 @@ export function ServidorDialog({ servidor, open, onOpenChange }: Props) {
               {formatName(servidor.nome)}
             </DialogTitle>
             <DialogDescription className="text-primary-foreground/85">
-              {servidor.cargo ?? "Cargo n�o informado"}
+              {servidor.cargo ?? "Cargo nao informado"}
             </DialogDescription>
           </DialogHeader>
         </div>
 
         <div className="space-y-5 p-6">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <Field label="Matr�cula" value={servidor.matricula} />
+            <Field label="Matricula" value={servidor.matricula} />
             <Field label="CPF" value={servidor.cpf} />
             <Field label="Regime" value={servidor.regime} />
-            <Field label="Situa��o" value={servidor.situacao} />
-            <Field label="Lota��o" value={servidor.lotacao} />
+            <Field label="Situacao" value={servidor.situacao} />
+            <Field label="Lotacao" value={servidor.lotacao} />
             <Field label="Local de trabalho" value={servidor.local_trabalho} />
-            <Field label="Horas semanais" value={servidor.horas_semanais ?? "�"} />
-            <Field label="Data de admiss�o" value={formatDate(servidor.data_admissao)} />
-            <Field label="Data de demiss�o" value={formatDate(servidor.data_demissao)} />
-            <Field label="Refer�ncia" value={`${servidor.nome_mes}/${servidor.ano}`} />
+            <Field label="Horas semanais" value={servidor.horas_semanais ?? "-"} />
+            <Field label="Data de admissao" value={formatDate(servidor.data_admissao)} />
+            <Field label="Data de demissao" value={formatDate(servidor.data_demissao)} />
+            <Field label="Referencia" value={`${servidor.nome_mes}/${servidor.ano}`} />
           </div>
 
           {servidor.unidade_gestora && (
@@ -67,7 +67,7 @@ export function ServidorDialog({ servidor, open, onOpenChange }: Props) {
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <Field label="Nome" value={servidor.unidade_gestora.nome} />
                   <Field label="CNPJ" value={servidor.unidade_gestora.cnpj} />
-                  <Field label="Endere�o" value={servidor.unidade_gestora.endereco} />
+                  <Field label="Endereco" value={servidor.unidade_gestora.endereco} />
                   <Field label="Telefone" value={servidor.unidade_gestora.telefone} />
                 </div>
               </div>

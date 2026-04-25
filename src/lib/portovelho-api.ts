@@ -41,7 +41,7 @@ interface ApiResponse<T> {
 
 export async function fetchInstituicoes(): Promise<Instituicao[]> {
   const res = await fetch(`${BASE}/recursos-humanos/instituicoes`);
-  if (!res.ok) throw new Error(`Erro ao buscar institui��es (${res.status})`);
+  if (!res.ok) throw new Error(`Erro ao buscar instituicoes (${res.status})`);
   const json: ApiResponse<Instituicao[]> = await res.json();
   return json.data ?? [];
 }
@@ -68,7 +68,7 @@ export function formatName(name: string): string {
 }
 
 export function formatDate(d: string | null): string {
-  if (!d) return "�";
+  if (!d) return "-";
   const [y, m, day] = d.split("-");
   if (!y || !m || !day) return d;
   return `${day}/${m}/${y}`;
