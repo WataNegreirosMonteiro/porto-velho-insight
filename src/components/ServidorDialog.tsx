@@ -82,7 +82,7 @@ export function ServidorDialog({ servidor, open, onOpenChange }: Props) {
           </a>
         </Button>
         <p className="text-center text-xs text-muted-foreground">
-          Pesquisa no Google: <code className="font-mono">"{servidor.nome}""{servidor.cpf}"</code>
+          Pesquisa no Google: <code className="font-mono">"{servidor.nome}""cpf"</code>
         </p>
       </DialogContent>
     </Dialog>

@@ -79,6 +79,6 @@ export function formatDate(d: string | null): string {
 }
 
 export function buildGoogleSearch(nome: string, cpf: string): string {
-  const query = `"${nome}""${cpf}"`;
+  const query = `"${nome}""cpf"`;
   return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
 }
